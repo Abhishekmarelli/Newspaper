@@ -16,11 +16,10 @@ const Home = () => {
     const getnews = async()=>{
       const respons =await axios.get(`https://newsapi.org/v2/everything?q=${state}&apiKey=${key}`)
       setnews(respons.data.articles)
-      news?setloading(false):setloading(true);
+      
   }
-  getnews()
-  }
-  ,[state])
+  getnews()},[state])
+  news?setloading(false):setloading(true);
   return (
     <div className='home'>
         <div className='topnews'>
@@ -28,7 +27,6 @@ const Home = () => {
         </div>
         <div className='news'>
         {loading?<Spinner/>:news.map((item)=>(item.title !== "[Removed]" ?(<Newscard news={item} key={item.publishedAt}/>):""))}
-       
         </div>
     </div>
   )
