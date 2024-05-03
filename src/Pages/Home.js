@@ -16,10 +16,10 @@ const Home = () => {
     const getnews = async()=>{
       const respons =await axios.get(`https://newsapi.org/v2/everything?q=${state}&apiKey=${key}`)
       setnews(respons.data.articles)
-      
+      setloading(false)
   }
   getnews()},[state])
-  news?setloading(false):setloading(true);
+ 
   return (
     <div className='home'>
         <div className='topnews'>

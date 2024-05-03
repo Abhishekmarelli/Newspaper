@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState,useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Newscard from '../Components/Newscard'
-import { Container, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import './search.css'
 
 const Search = () => {
@@ -19,7 +19,7 @@ const Search = () => {
     setnews(respones.data.articles)    
   }
   fetchnews()
-  }, [state]);
+  }, [url,state]);
 
   return (
     <div>
